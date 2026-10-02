@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mac Torpey | Portfolio</title>
+
+    <meta
+        name="description"
+        content="Personal portfolio of Mac Torpey, a Rutgers University student studying Finance and Political Science."
+    >
+
+    <style>
+
+        /* GENERAL */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f8fa;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            background-color: #111827;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .nav-container {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #e5e7eb;
+            font-size: 0.95rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ef4444;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(
+                135deg,
+                rgba(17, 24, 39, 0.98),
+                rgba(31, 41, 55, 0.97)
+            );
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 80px 0;
+        }
+
+        .hero-label {
+            color: #ef4444;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero-statement {
+            font-size: 1.35rem;
+            color: #d1d5db;
+            max-width: 800px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+
+        /* BUTTONS */
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 7px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .button-primary {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #9ca3af;
+            color: white;
+        }
+
+        .button-secondary:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-heading p {
+            color: #dc2626;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.4rem;
+            color: #111827;
+        }
+
+
+        /* SKILLS */
+
+        #skills {
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 25px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* PROJECTS */
+
+        #projects {
+            background-color: #f7f8fa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+        }
+
+        .project-number {
+            color: #dc2626;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #111827;
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #4b5563;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            color: #dc2626;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* CONTACT */
+
+        #contact {
+            background-color: #111827;
+            color: white;
+        }
+
+        #contact .section-heading h2 {
+            color: white;
+        }
+
+        #contact .section-heading p {
+            color: #ef4444;
+        }
+
+        .contact-description {
+            color: #d1d5db;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background-color: #090e18;
+            color: #9ca3af;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero-statement {
+                font-size: 1.1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                Mac Torpey
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- PERSONAL STATEMENT -->
+
+    <header class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    Personal Portfolio
+                </p>
+
+                <h1>
+                    Mac Torpey
+                </h1>
+
+                <p class="hero-statement">
+                    Rutgers University student with experience across finance,
+                    research, public policy, and business, focused on applying
+                    analytical and communication skills to real-world problems.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="button button-primary"
+                    >
+                        View My Projects
+                    </a>
+
+                    <a
+                        href="Main Resume (2026), PDF.pdf"
+                        class="button button-secondary"
+                        target="_blank"
+                    >
+                        View Resume
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p>
+                    What I Bring
+                </p>
+
+                <h2>
+                    Skills
+                </h2>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    Research & Analysis
+                </div>
+
+                <div class="skill-card">
+                    Financial Analysis
+                </div>
+
+                <div class="skill-card">
+                    Data Analysis
+                </div>
+
+                <div class="skill-card">
+                    Microsoft Excel
+                </div>
+
+                <div class="skill-card">
+                    Professional Communication
+                </div>
+
+                <div class="skill-card">
+                    Strategic Problem Solving
+                </div>
+
+                <div class="skill-card">
+                    Team Collaboration
+                </div>
+
+                <div class="skill-card">
+                    Leadership
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p>
+                    Selected Work
+                </p>
+
+                <h2>
+                    Projects
+                </h2>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <article class="project-card">
+
+                    <p class="project-number">
+                        PROJECT 01
+                    </p>
+
+                    <h3>
+                        Political Science Research Methods
+                    </h3>
+
+                    <p>
+                        I conducted a research project examining the relationship
+                        between state gun control laws and gun deaths across the
+                        United States. The project included a review of existing
+                        research, the development of a testable hypothesis, and
+                        bivariate and multivariate regression analysis while
+                        accounting for poverty rate.
+                    </p>
+
+                    <a
+                        href="Research Paper (1).pdf"
+                        class="project-link"
+                        target="_blank"
+                    >
+                        View Research Paper →
+                    </a>
+
+                </article>
+
+
+
+                <!-- PROJECT 2 -->
+
+                <article class="project-card">
+
+                    <p class="project-number">
+                        PROJECT 02
+                    </p>
+
+                    <h3>
+                        IEW Construction Management Analysis
+                    </h3>
+
+                    <p>
+                        I worked with a team to study a management challenge at
+                        IEW Construction Group. We conducted interviews with the
+                        company's CEO, researched industry data, analyzed staffing
+                        and retention challenges, and developed recommendations
+                        focused on workforce planning and employee retention.
+                    </p>
+
+                    <a
+                        href="Final Presentation, Management Skills,.pdf"
+                        class="project-link"
+                        target="_blank"
+                    >
+                        View Management Project →
+                    </a>
+
+                </article>
+
+
+
+                <!-- PROJECT 3 -->
+
+                <article class="project-card">
+
+                    <p class="project-number">
+                        PROJECT 03
+                    </p>
+
+                    <h3>
+                        International Marketing Strategy
+                    </h3>
+
+                    <p>
+                        I worked with a team to research how businesses can grow
+                        internationally while balancing a consistent global brand
+                        with the different needs of local markets. The project
+                        examined market entry strategies, the marketing mix,
+                        global branding, and digital tools before developing
+                        recommendations for international expansion.
+                    </p>
+
+                    <a
+                        href="Int'l Marketing - Final Term Project Slideshow.pdf"
+                        class="project-link"
+                        target="_blank"
+                    >
+                        View Marketing Project →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p>
+                    Connect With Me
+                </p>
+
+                <h2>
+                    Contact
+                </h2>
+
+            </div>
+
+
+            <p class="contact-description">
+
+                Interested in learning more about my experience or work?
+                Feel free to connect with me through LinkedIn, GitHub, or email.
+
+            </p>
+
+
+            <div class="contact-links">
+
+                <a
+                    href="mailto:mat439@scarletmail.rutgers.edu"
+                    class="button button-primary"
+                >
+                    Email Me
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/mac-torpey-b503b431a"
+                    class="button button-secondary"
+                    target="_blank"
+                >
+                    LinkedIn
+                </a>
+
+
+                <a
+                    href="https://github.com/YOUR-GITHUB-USERNAME"
+                    class="button button-secondary"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+
+
+                <a
+                    href="Main Resume (2026), PDF.pdf"
+                    class="button button-secondary"
+                    target="_blank"
+                >
+                    Resume
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Mac Torpey. Built with HTML & CSS.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
